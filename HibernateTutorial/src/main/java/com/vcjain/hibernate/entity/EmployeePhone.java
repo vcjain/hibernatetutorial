@@ -6,18 +6,27 @@ package com.vcjain.hibernate.entity;
 import java.sql.Date;
 import java.util.List;
 
-import javax.persistence.Cacheable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
+/*
+ * TABLE SQL Script
+ * 
+ * CREATE TABLE `employeephone` (
+    `id` BIGINT(10) NOT NULL AUTO_INCREMENT,
+    `firstname` VARCHAR(50) NULL DEFAULT NULL,
+    `lastname` VARCHAR(50) NULL DEFAULT NULL,
+    `birth_date` DATE NOT NULL,
+    PRIMARY KEY (`id`)
+);
+ */
 
 @Entity
 @Table(name="EMPLOYEEPHONE") 
