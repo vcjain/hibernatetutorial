@@ -4,11 +4,16 @@
 package com.vcjain.hibernate;
 
 import java.sql.Date;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 
 import com.vcjain.hibernate.entity.Employee;
 
@@ -33,8 +38,10 @@ public class EmployeeManager {
 			
 			//Caching functionality
 			o.getEmployee(new Long(2));
-			o.getEmployee(new Long(2));
+			o.getEmployee(new Long(3));
 			
+			//Using Criteria
+			o.getEmployeeUsingCriteriaQuery();
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally{
@@ -62,6 +69,25 @@ public class EmployeeManager {
 		try{
 			em = emf.createEntityManager();
 			Employee emp = em.find(Employee.class, ID);
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			em.close();
+		}
+	}
+	
+	public void getEmployeeUsingCriteriaQuery(){
+		try{
+			em = emf.createEntityManager();
+			 CriteriaBuilder cb = em.getCriteriaBuilder();
+			 
+			  CriteriaQuery<Employee> q = cb.createQuery(Employee.class);
+			  Root<Employee> e = q.from(Employee.class);
+			  q.select(e).where(cb.gt(e.get("id").as(Long.class), new Long(2)));
+			  
+			  final TypedQuery<Employee> query = em.createQuery(q);
+			  List<Employee> resultSet = query.getResultList();
+			  System.out.println(resultSet.get(0).getFirstname());
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally{

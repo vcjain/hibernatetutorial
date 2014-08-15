@@ -67,4 +67,7 @@ public class ContactNumber {
     	this.empPhone = phone;
     }
     
+    public String toString(){
+    	return this.contactType+" number is "+this.number;
+    }
 }

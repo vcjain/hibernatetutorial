@@ -62,6 +62,76 @@ public class Employee {
         this.cellphone = phone;
          
     }
+
+	/**
+	 * @return the id
+	 */
+	public Long getId() {
+		return id;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	/**
+	 * @return the firstname
+	 */
+	public String getFirstname() {
+		return firstname;
+	}
+
+	/**
+	 * @param firstname the firstname to set
+	 */
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
+	}
+
+	/**
+	 * @return the lastname
+	 */
+	public String getLastname() {
+		return lastname;
+	}
+
+	/**
+	 * @param lastname the lastname to set
+	 */
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
+
+	/**
+	 * @return the birthDate
+	 */
+	public Date getBirthDate() {
+		return birthDate;
+	}
+
+	/**
+	 * @param birthDate the birthDate to set
+	 */
+	public void setBirthDate(Date birthDate) {
+		this.birthDate = birthDate;
+	}
+
+	/**
+	 * @return the cellphone
+	 */
+	public String getCellphone() {
+		return cellphone;
+	}
+
+	/**
+	 * @param cellphone the cellphone to set
+	 */
+	public void setCellphone(String cellphone) {
+		this.cellphone = cellphone;
+	}
      
-    // Getter and Setter methods
+    
 }
